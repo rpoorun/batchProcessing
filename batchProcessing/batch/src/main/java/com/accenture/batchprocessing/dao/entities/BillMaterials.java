@@ -18,9 +18,9 @@ public class BillMaterials {
 	@Column(name="JOB_NUMBER")
 	private String jobNumber;
 	
-	@OneToMany
-	@JoinColumn(name="MATERIALS")
-	private List<Material> materials;
+	@OneToMany(mappedBy="bill")
+	
+	private List<BillToMaterials> billList;
 
 	public Long getId() {
 		return id;
@@ -38,16 +38,14 @@ public class BillMaterials {
 		this.jobNumber = jobNumber;
 	}
 
-	public List<Material> getMaterials() {
-		return materials;
+	public List<BillToMaterials> getBillList() {
+		return billList;
 	}
 
-	public void setMaterials(List<Material> materials) {
-		this.materials = materials;
+	public void setBillList(List<BillToMaterials> billList) {
+		this.billList = billList;
 	}
-	
-	
-	
+
 	
 	
 	

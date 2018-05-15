@@ -1,9 +1,12 @@
 package com.accenture.batchprocessing.dao.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Material {
@@ -20,9 +23,19 @@ public class Material {
 	@Column(name="UNIT_PRICE")
 	private Double price;
 
-	@ManyToOne
-	private BillMaterials billMaterial;
+	@OneToMany(mappedBy="material")
 	
+	private List<BillToMaterials> billList;
+	
+
+	public List<BillToMaterials> getBillList() {
+		return billList;
+	}
+
+	public void setBillList(List<BillToMaterials> billList) {
+		this.billList = billList;
+	}
+
 	public Long getMaterialId() {
 		return materialId;
 	}
