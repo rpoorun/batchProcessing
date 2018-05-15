@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 
@@ -19,8 +19,7 @@ public class BillMaterials {
 	private String jobNumber;
 	
 	@OneToMany(mappedBy="bill")
-	
-	private List<BillToMaterials> billList;
+	private List<BillToMaterials> materialList;
 
 	public Long getId() {
 		return id;
@@ -39,11 +38,11 @@ public class BillMaterials {
 	}
 
 	public List<BillToMaterials> getBillList() {
-		return billList;
+		return materialList;
 	}
 
 	public void setBillList(List<BillToMaterials> billList) {
-		this.billList = billList;
+		this.materialList = billList;
 	}
 
 	
