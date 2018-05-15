@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class BillToMaterials {
 	
@@ -13,6 +15,7 @@ public class BillToMaterials {
 	@Id
 	@Column(name="tempId")
 	private Long id;
+	
 	
 	@ManyToOne
 	@JoinColumn(referencedColumnName="id")
@@ -22,6 +25,7 @@ public class BillToMaterials {
 	@JoinColumn(referencedColumnName="materialId")
 	private Material material;
 	
+	@JsonIgnore
 	public BillMaterials getBill() {
 		return bill;
 	}
@@ -30,6 +34,7 @@ public class BillToMaterials {
 		this.bill = bill;
 	}
 
+	
 	public Material getMaterial() {
 		return material;
 	}

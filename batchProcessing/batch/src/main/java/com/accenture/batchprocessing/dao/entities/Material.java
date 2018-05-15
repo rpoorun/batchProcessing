@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Material {
 	
@@ -16,8 +18,6 @@ public class Material {
 	@Column(name="MATERIAL_DESC")
 	private String description;
 	
-	@Column(name="QUANTITY")
-	private Integer quantity;
 	
 	@Column(name="UNIT_PRICE")
 	private Double price;
@@ -26,7 +26,7 @@ public class Material {
 	
 	private List<BillToMaterials> billList;
 	
-
+	@JsonIgnore
 	public List<BillToMaterials> getBillList() {
 		return billList;
 	}
@@ -51,13 +51,7 @@ public class Material {
 		this.description = description;
 	}
 
-	public Integer getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
+	
 
 	public Double getPrice() {
 		return price;
