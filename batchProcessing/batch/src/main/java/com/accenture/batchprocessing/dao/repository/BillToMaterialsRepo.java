@@ -1,5 +1,6 @@
 package com.accenture.batchprocessing.dao.repository;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Set;
 
@@ -16,5 +17,5 @@ public interface BillToMaterialsRepo extends CrudRepository<BillToMaterials, Lon
 	public List<BillToMaterials> findByMaterial(Material material);
 	
 	@Query(value="SELECT material_material_id FROM bill_to_materials", nativeQuery = true)
-	public Set<Long> getMaterial();
+	public Set<BigInteger> getMaterial();
 }

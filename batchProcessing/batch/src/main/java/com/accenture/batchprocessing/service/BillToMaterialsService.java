@@ -1,5 +1,6 @@
 package com.accenture.batchprocessing.service;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Set;
 
@@ -36,7 +37,7 @@ public class BillToMaterialsService {
 		return repo.findByMaterial(material);
 	}
 
-	public Set<Long> findMaterial(){
+	public Set<BigInteger> findMaterial(){
 		return repo.getMaterial();
 	}
 }
