@@ -1,5 +1,9 @@
 package com.accenture.batchprocessing.service;
 
+import java.math.BigInteger;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +24,18 @@ public class MaterialService {
 		repo.save(material);
 	}
 	
-	public Material getMaterial(Long materialId) {
+	public Material getMaterial(Long longId) {
 		
-		Material material = repo.findById(materialId).get();
+		Material material = repo.findByMaterialId(longId).get();
 		
 		return material;
+	}
+	
+	public Set<Material> showAll()
+	{
+		Set<Material> materials = new HashSet<>();
+		repo.findAll().forEach(materials::add);
+		return materials;
 	}
 
 }

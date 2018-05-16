@@ -8,4 +8,5 @@ import com.accenture.batchprocessing.dao.entities.BillMaterials;
 @Repository
 public interface BillMaterialsRepo extends CrudRepository<BillMaterials, Long>{
 
+	
 }
