@@ -15,6 +15,6 @@ public interface BillToMaterialsRepo extends CrudRepository<BillToMaterials, Lon
 
 	public List<BillToMaterials> findByMaterial(Material material);
 	
-	@Query("SELECT material_material_id FROM bill_to_materials")
-	public Set<Long> findMaterial();
+	@Query(value="SELECT material_material_id FROM bill_to_materials", nativeQuery = true)
+	public Set<Long> getMaterial();
 }

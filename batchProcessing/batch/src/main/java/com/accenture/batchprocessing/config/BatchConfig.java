@@ -7,6 +7,7 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.accenture.batchprocessing.tasklet.TaskletStep;
@@ -23,7 +24,7 @@ public class BatchConfig {
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
  
-    
+    @Bean
     public Job job() {
     	return jobBuilderFactory.get("job")
     			.incrementer(new RunIdIncrementer())
@@ -31,8 +32,8 @@ public class BatchConfig {
     			.build();
     }
 
-
-	private Step step1() {
+    @Bean
+	public Step step1() {
 		
 		return stepBuilderFactory.get("step1")
         		.tasklet(taskletStep)

@@ -37,6 +37,6 @@ public class BillToMaterialsService {
 	}
 
 	public Set<Long> findMaterial(){
-		return repo.findMaterial();
+		return repo.getMaterial();
 	}
 }
